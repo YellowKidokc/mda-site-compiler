@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.streamlit/secrets.toml
+output/**/*.html
+!output/moral-decline/MDA-050-jacob-2025.html
+dist/
+streamlit*.log

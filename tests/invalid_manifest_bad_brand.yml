@@ -1,0 +1,14 @@
+id: MDA-999
+filename: MDA-999-bad-brand.html
+canonical: /moral-decline/MDA-999-bad-brand.html
+public_title: Bad Brand Test
+seo_title: Bad Brand Test | Moral Decay of America
+meta_description: This fixture intentionally uses forbidden branding to prove validation catches it.
+status: production
+brand: Moral Decay of America
+layout: article
+topbar: main
+hero: blackboard
+nav: mda
+sidebar: toc
+footer: standard

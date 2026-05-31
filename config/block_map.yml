@@ -1,0 +1,32 @@
+definition:
+  tag: section
+  class: definition-block
+  label: Definition
+claim:
+  tag: section
+  class: claim-block
+  label: Claim
+proof:
+  tag: section
+  class: proof-block
+  label: Proof
+audit:
+  tag: section
+  class: audit-block
+  label: Audit Layer
+law:
+  tag: section
+  class: law-block
+  label: Law
+quote:
+  tag: blockquote
+  class: quote-block
+  label: Quote
+warning:
+  tag: aside
+  class: warning-block
+  label: Warning
+lean:
+  tag: pre
+  class: lean-proof-block
+  label: Lean Surface

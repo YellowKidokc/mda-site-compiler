@@ -1,0 +1,32 @@
+required:
+  - id
+  - filename
+  - canonical
+  - public_title
+  - seo_title
+  - meta_description
+  - status
+  - brand
+  - layout
+  - topbar
+  - hero
+  - nav
+  - footer
+allowed:
+  status:
+    - draft
+    - audit
+    - production
+  brand:
+    - The Moral Decline of America
+  layout:
+    - article
+  proof_layer:
+    - hidden
+    - visible
+  related_ring:
+    - hidden
+    - visible
+filename_pattern: "^MDA-[0-9]{3}[a-zA-Z0-9-]*\\.html$"
+canonical_prefix: "/moral-decline/"
+min_meta_description_length: 50

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ seo_title }}</title>
+  <meta name="description" content="{{ meta_description }}">
+  <link rel="canonical" href="{{ site_url }}{{ canonical }}">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  {% if theme %}
+  <style>
+    :root {
+      --bg: {{ theme.bg | default('#101114') }};
+      --panel: {{ theme.panel | default('#181b20') }};
+      --text: {{ theme.text | default('#f1f1ee') }};
+      --muted: {{ theme.muted | default('#b9b6aa') }};
+      --line: {{ theme.line | default('#30343b') }};
+      --accent: {{ theme.accent | default('#d7b56d') }};
+      --content-max: {{ theme.content_max | default('820px') }};
+      --sidebar-width: {{ theme.sidebar_width | default('280px') }};
+    }
+  </style>
+  {% endif %}
+  {% if audio %}<link rel="stylesheet" href="/assets/css/audio-player.css">{% endif %}
+  {% if audio %}<script src="/assets/js/audio-player.js" defer></script>{% endif %}
+</head>
+<body data-page-id="{{ id }}" data-status="{{ status }}" data-brand="{{ brand }}">
+  {{ topbar_html | safe }}
+  {{ nav_html | safe }}
+  {{ hero_html | safe }}
+
+  <main class="page-shell">
+    {% if sidebar_html %}<aside class="page-sidebar">{{ sidebar_html | safe }}</aside>{% endif %}
+    <article class="page-content">
+      {{ content_html | safe }}
+      {% if proof_layer == 'visible' %}
+      <section class="proof-layer">
+        <h2>Audit Layer</h2>
+        <p>No claim has been promoted to formal proof status yet.</p>
+      </section>
+      {% endif %}
+      {% if related_ring == 'visible' %}
+      <section class="related-ring">
+        <h2>Related Work</h2>
+        <p>Connections should be populated before production.</p>
+      </section>
+      {% endif %}
+    </article>
+  </main>
+
+  {{ footer_html | safe }}
+</body>
+</html>
