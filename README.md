@@ -154,6 +154,21 @@ That means every pull request has to build the Markdown, validate manifests, val
 
 For AI handoff, start with `docs/PROMPT_THIS_REPO.md`.
 
+## Legacy Master HTML bridge
+
+The older production workshop lives at:
+
+```txt
+\\dlowenas\HPWorkstation\Desktop\Master HTMl\Scripts
+```
+
+This repo does not replace that folder. It gives the older scripts a cleaner manifest-driven front door.
+
+See:
+
+- `docs/LEGACY_SCRIPT_BRIDGE.md`
+- `config/legacy_script_bridge.yml`
+
 
 ## GUI mode
 

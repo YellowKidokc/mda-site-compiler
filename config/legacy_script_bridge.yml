@@ -1,0 +1,142 @@
+legacy_root: "\\\\dlowenas\\HPWorkstation\\Desktop\\Master HTMl\\Scripts"
+principle: "Reference and harvest stable contracts from the legacy workshop; do not bulk-copy legacy scripts."
+layers:
+  scanners:
+    - script: bootstrap_master_html_labels.py
+      purpose: Builds page/system labels for Master HTML pages.
+      repo_layer: detector
+      reuse_contract: "Emit page identity, series, slot, and trace labels as JSON/Markdown."
+      disposition: wrap_or_port_contract
+      risk: medium
+    - script: hero_image_audit.py
+      purpose: Audits hero/article image coverage.
+      repo_layer: component_manifest
+      reuse_contract: "Map image assets to page IDs and roles."
+      disposition: port_logic_later
+      risk: low
+    - script: mda_media_manifest.py
+      purpose: Builds MDA media inventory.
+      repo_layer: media_manifest
+      reuse_contract: "Represent audio, images, video, and page associations in a machine-readable manifest."
+      disposition: port_logic_later
+      risk: low
+    - script: mda_audio_catalog_map.py
+      purpose: Maps audio catalog files to article IDs.
+      repo_layer: media_manifest
+      reuse_contract: "Connect audio files to page manifests without hardcoding in HTML."
+      disposition: port_logic_later
+      risk: low
+  validators:
+    - script: mda_audit_repair.py
+      purpose: Audits MDA production HTML for metadata, encoding, links, assets, palette, and safe fix candidates.
+      repo_layer: validator
+      reuse_contract: "Metadata, canonical, mojibake, shared asset, analytics, template-name, and link checks."
+      disposition: extract_validator_rules
+      risk: high
+      notes: "Do not port production-writing behavior until backup and dry-run contracts are duplicated."
+    - script: find_unicode.py
+      purpose: Finds unicode/mojibake issues.
+      repo_layer: validator
+      reuse_contract: "Encoding corruption patterns for generated HTML and source Markdown."
+      disposition: extract_patterns
+      risk: low
+    - script: verify_live.py
+      purpose: Verifies live/output pages.
+      repo_layer: validator
+      reuse_contract: "Post-build checks should report URL/readiness state without editing files."
+      disposition: reference
+      risk: medium
+  transformers:
+    - script: convert_html_to_clean_markdown.py
+      purpose: Converts HTML pages to cleaner Markdown.
+      repo_layer: source_transformer
+      reuse_contract: "HTML to Markdown extraction with navigation/chrome stripping."
+      disposition: port_logic_later
+      risk: medium
+    - script: html_to_markdown_scrape.py
+      purpose: Produces page/article Markdown snapshots.
+      repo_layer: source_transformer
+      reuse_contract: "Export source snapshots for AI review and component detection."
+      disposition: port_logic_later
+      risk: medium
+    - script: convert_canonical_html_to_tts_markdown.py
+      purpose: Converts canonical HTML to TTS-ready Markdown.
+      repo_layer: export_transformer
+      reuse_contract: "Separate reader/audio text exports from visual HTML."
+      disposition: reference
+      risk: medium
+  injectors:
+    - script: component_swap.py
+      purpose: Series-aware component swap/removal/injection engine.
+      repo_layer: compiler_transform
+      reuse_contract: "Component actions should be named, dry-run capable, and series-aware."
+      disposition: extract_action_model
+      risk: medium
+    - script: mda_proof_layer_inject.py
+      purpose: Injects MDA proof pressure layer panels.
+      repo_layer: proof_layer
+      reuse_contract: "Proof/audit layer should be controlled by manifest status and claim tier."
+      disposition: port_contract_first
+      risk: high
+    - script: mda_reader_tabs_v2_patch.py
+      purpose: Injects or updates reader mode tabs.
+      repo_layer: layout_component
+      reuse_contract: "Reader modes are components selected by manifest, not manually pasted into every page."
+      disposition: port_contract_first
+      risk: medium
+    - script: mda_nav_v2_patch.py
+      purpose: Patches MDA navigation to v2 format.
+      repo_layer: navigation
+      reuse_contract: "Navigation should derive from series/read-order manifests."
+      disposition: port_logic_later
+      risk: medium
+    - script: wire_mda_navigation.py
+      purpose: Wires prev/next navigation across MDA pages.
+      repo_layer: navigation
+      reuse_contract: "Prev/next links derive from explicit reading_order, not filename guesses."
+      disposition: port_logic_later
+      risk: medium
+  media:
+    - script: inject_player.py
+      purpose: Injects player UI.
+      repo_layer: media_component
+      reuse_contract: "Audio player assets should be included once and controlled by page media manifest."
+      disposition: extract_component_contract
+      risk: medium
+    - script: wire_unified_media_players.py
+      purpose: Wires shared media players across pages.
+      repo_layer: media_component
+      reuse_contract: "Media player rendering should consume media_manifest entries."
+      disposition: reference
+      risk: medium
+    - script: wire_gtq_audio_players.py
+      purpose: Wires GTQ audio players.
+      repo_layer: media_component
+      reuse_contract: "Series-specific audio patterns can inform generic audio component contracts."
+      disposition: reference
+      risk: low
+  runners:
+    - script: master_html_modular_runner.py
+      purpose: Orchestrates modular report/edit-capable operations.
+      repo_layer: runner
+      reuse_contract: "Runner lists modules, executes narrow passes, writes reports, and keeps apply optional."
+      disposition: port_runner_pattern
+      risk: medium
+  docs_and_prompts:
+    - script: SCRIPT_SYSTEM_GUIDE.md
+      purpose: Defines modular script philosophy and safety rules.
+      repo_layer: operating_contract
+      reuse_contract: "Small scripts, dry-runs, backups, reports, and explicit read/write/refuse/verify answers."
+      disposition: preserve_as_guidance
+      risk: low
+    - script: MDA_HTML_SESSION_GUIDE.md
+      purpose: Session orientation for MDA production HTML work.
+      repo_layer: operating_contract
+      reuse_contract: "Production folder, do-not-touch rules, workflow order, and existing tool map."
+      disposition: preserve_as_guidance
+      risk: low
+next_ports:
+  - "Extract mda_audit_repair metadata/canonical/encoding checks into scripts/validate_page.py."
+  - "Make compiler consume component_manifests/*.components.yml for image controls."
+  - "Add a runner that executes detector -> manifest validation -> build -> QA report."
+  - "Expose component manifest controls in GUI after the CLI path is stable."
