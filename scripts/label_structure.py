@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import re
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -161,7 +161,8 @@ def label_markdown(path: Path, schema: dict[str, Any]) -> dict[str, Any]:
 
     return {
         "version": 1,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_by": "scripts/label_structure.py",
+        "source_sha256": hashlib.sha256(raw.encode("utf-8")).hexdigest(),
         "source": str(path.relative_to(ROOT)),
         "frontmatter": frontmatter,
         "components": [
@@ -229,7 +230,8 @@ def label_html(path: Path, schema: dict[str, Any]) -> dict[str, Any]:
 
     return {
         "version": 1,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_by": "scripts/label_structure.py",
+        "source_sha256": hashlib.sha256(html.encode("utf-8")).hexdigest(),
         "source": str(path.relative_to(ROOT)),
         "components": [component.__dict__ for component in components],
     }

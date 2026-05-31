@@ -1,5 +1,6 @@
 version: 1
-generated_at: '2026-05-31T21:02:57.752417+00:00'
+generated_by: scripts/label_structure.py
+source_sha256: 53557310bf1fa6966bad88a8b920b524f6a4787bc74c060c4713e0a15a4c4319
 source: content\MDA-050-jacob-2025.md
 frontmatter:
   id: MDA-050
