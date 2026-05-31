@@ -1,0 +1,29 @@
+version: 1
+component_types:
+  heading:
+    controls: [level, text, anchor, placement]
+  paragraph:
+    controls: [text, placement, emphasis]
+  image:
+    controls: [source, alt, placement, align, width, height, caption, crop, mobile_behavior]
+  semantic_block:
+    controls: [block_type, placement, visibility, emphasis, layer, claim_status]
+  quote:
+    controls: [source_label, placement, emphasis, attribution]
+  html_component:
+    controls: [tag, classes, id, placement, visibility]
+defaults:
+  image:
+    align: center
+    width: auto
+    height: auto
+    caption: auto
+    crop: none
+    mobile_behavior: full_width
+  semantic_block:
+    visibility: visible
+    emphasis: normal
+    layer: article
+    claim_status: unreviewed
+  paragraph:
+    emphasis: normal

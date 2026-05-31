@@ -25,6 +25,8 @@ image_alt: Jacob and the 2025 signal represented as a coherence checkpoint.
 
 This sample page shows how one Markdown file can drive a full custom HTML page.
 
+![Jacob and the 2025 signal](/assets/images/MDA-050-jacob-2025.jpg "Coherence checkpoint image")
+
 ::claim type="STRUCTURAL_SUPPORT"
 This page is not marked as formal proof. It is a structured claim awaiting further evidence review.
 ::

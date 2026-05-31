@@ -106,6 +106,42 @@ theorem sample : True := by
 
 This is the main extension point. Do not bury new page logic inside random Markdown conventions.
 
+## Component labeling
+
+Before rebuilding pages, run the recognition pass:
+
+```bash
+python scripts/label_structure.py content/MDA-050-jacob-2025.md
+```
+
+This writes:
+
+```txt
+component_manifests/MDA-050-jacob-2025.components.yml
+```
+
+That file is the shared workbench for humans and AI. It gives every detected part a stable ID and a set of controls.
+
+Example image component:
+
+```yaml
+id: image_001
+type: image
+role: article_image
+controls:
+  source: /assets/images/MDA-050-jacob-2025.jpg
+  alt: Jacob and the 2025 signal
+  placement: after:jacob-and-the-2025-signal
+  align: center
+  width: auto
+  height: auto
+  caption: Coherence checkpoint image
+  crop: none
+  mobile_behavior: full_width
+```
+
+The GUI can eventually edit these controls visually. An AI partner can edit the same YAML directly, then run build and validation. The rule is not obedience; the rule is legibility. The page becomes parts with handles instead of HTML soup.
+
 ## GitHub template use
 
 This repo is ready to push as a GitHub repository. The included workflow runs:

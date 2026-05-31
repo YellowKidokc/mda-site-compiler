@@ -9,6 +9,8 @@ Rules:
 - Do not hand-edit generated HTML in `output/` as the source of truth.
 - Edit `content/*.md`, `manifests/*.yml`, `layouts/`, `partials/`, `assets/`, or `config/`.
 - Add new semantic blocks in `config/block_map.yml`.
+- Run `scripts/label_structure.py` before redesigning a page so the AI sees components instead of raw HTML soup.
+- Treat `component_manifests/*.components.yml` as the shared workbench for visual controls and AI edits.
 - Add new production rules in `scripts/validate_page.py`.
 - Keep `brand: The Moral Decline of America`; reject old "Moral Decay" language.
 - Keep `asset_id`/filename separate from public reader order if ordering is added later.
@@ -34,3 +36,6 @@ Templates place components.
 CSS styles components.
 Scripts connect and reject bad output.
 ```
+
+Newest direction:
+The repo should evolve toward a visual/CLI twin system. The GUI edits component controls visually; AI edits the same YAML controls directly. Both paths rebuild through the same compiler.

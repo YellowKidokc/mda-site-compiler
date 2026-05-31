@@ -1,0 +1,249 @@
+version: 1
+generated_at: '2026-05-31T21:02:57.752417+00:00'
+source: content\MDA-050-jacob-2025.md
+frontmatter:
+  id: MDA-050
+  filename: MDA-050-jacob-2025.html
+  canonical: /moral-decline/MDA-050-jacob-2025.html
+  public_title: Jacob and the 2025 Signal
+  seo_title: Jacob and the 2025 Signal | The Moral Decline of America
+  meta_description: A model-based analysis of the Jacob signal in relation to the
+    Moral Decline of America framework.
+  status: audit
+  brand: The Moral Decline of America
+  layout: article
+  topbar: main
+  hero: blackboard
+  nav: mda
+  sidebar: toc
+  footer: standard
+  audio: true
+  proof_layer: hidden
+  related_ring: hidden
+  claim_type: STRUCTURAL_SUPPORT
+  image: /assets/images/MDA-050-jacob-2025.jpg
+  image_alt: Jacob and the 2025 signal represented as a coherence checkpoint.
+components:
+- id: heading_001
+  type: heading
+  role: section_heading
+  source:
+    format: markdown
+    path: content\MDA-050-jacob-2025.md
+    line_start: 24
+    line_end: 24
+  controls:
+    level: 1
+    text: Jacob and the 2025 Signal
+    anchor: jacob-and-the-2025-signal
+    placement: document_flow
+  lock:
+    text: false
+    level: false
+  notes: []
+- id: paragraph_001
+  type: paragraph
+  role: body_copy
+  source:
+    format: markdown
+    path: content\MDA-050-jacob-2025.md
+    line_start: 26
+    line_end: 26
+  controls:
+    placement: in:jacob-and-the-2025-signal
+    emphasis: normal
+  lock:
+    content: false
+  notes: []
+- id: image_001
+  type: image
+  role: article_image
+  source:
+    format: markdown
+    path: content\MDA-050-jacob-2025.md
+    line_start: 28
+    line_end: 28
+  controls:
+    align: center
+    width: auto
+    height: auto
+    caption: Coherence checkpoint image
+    crop: none
+    mobile_behavior: full_width
+    source: /assets/images/MDA-050-jacob-2025.jpg
+    alt: Jacob and the 2025 signal
+    placement: after:jacob-and-the-2025-signal
+  lock:
+    source: false
+    alt: false
+    placement: false
+  notes: []
+- id: semantic_block_001
+  type: semantic_block
+  role: claim
+  source:
+    format: markdown
+    path: content\MDA-050-jacob-2025.md
+    line_start: 30
+    line_end: 33
+  controls:
+    visibility: visible
+    emphasis: normal
+    layer: article
+    claim_status: unreviewed
+    block_type: claim
+    placement: after:jacob-and-the-2025-signal
+  lock:
+    content: false
+    role: false
+  notes: []
+- id: heading_002
+  type: heading
+  role: section_heading
+  source:
+    format: markdown
+    path: content\MDA-050-jacob-2025.md
+    line_start: 34
+    line_end: 34
+  controls:
+    level: 2
+    text: Core Question
+    anchor: core-question
+    placement: document_flow
+  lock:
+    text: false
+    level: false
+  notes: []
+- id: paragraph_002
+  type: paragraph
+  role: body_copy
+  source:
+    format: markdown
+    path: content\MDA-050-jacob-2025.md
+    line_start: 36
+    line_end: 36
+  controls:
+    placement: in:core-question
+    emphasis: normal
+  lock:
+    content: false
+  notes: []
+- id: semantic_block_002
+  type: semantic_block
+  role: definition
+  source:
+    format: markdown
+    path: content\MDA-050-jacob-2025.md
+    line_start: 38
+    line_end: 41
+  controls:
+    visibility: visible
+    emphasis: normal
+    layer: article
+    claim_status: unreviewed
+    block_type: definition
+    placement: after:core-question
+  lock:
+    content: false
+    role: false
+  notes: []
+- id: heading_003
+  type: heading
+  role: section_heading
+  source:
+    format: markdown
+    path: content\MDA-050-jacob-2025.md
+    line_start: 42
+    line_end: 42
+  controls:
+    level: 2
+    text: Evidence Layer
+    anchor: evidence-layer
+    placement: document_flow
+  lock:
+    text: false
+    level: false
+  notes: []
+- id: paragraph_003
+  type: paragraph
+  role: body_copy
+  source:
+    format: markdown
+    path: content\MDA-050-jacob-2025.md
+    line_start: 44
+    line_end: 44
+  controls:
+    placement: in:evidence-layer
+    emphasis: normal
+  lock:
+    content: false
+  notes: []
+- id: semantic_block_003
+  type: semantic_block
+  role: audit
+  source:
+    format: markdown
+    path: content\MDA-050-jacob-2025.md
+    line_start: 46
+    line_end: 49
+  controls:
+    visibility: visible
+    emphasis: normal
+    layer: article
+    claim_status: unreviewed
+    block_type: audit
+    placement: after:evidence-layer
+  lock:
+    content: false
+    role: false
+  notes: []
+- id: quote_001
+  type: quote
+  role: quote
+  source:
+    format: markdown
+    path: content\MDA-050-jacob-2025.md
+    line_start: 50
+    line_end: 53
+  controls:
+    visibility: visible
+    emphasis: normal
+    layer: article
+    claim_status: unreviewed
+    block_type: quote
+    placement: after:evidence-layer
+  lock:
+    content: false
+    role: false
+  notes: []
+- id: heading_004
+  type: heading
+  role: section_heading
+  source:
+    format: markdown
+    path: content\MDA-050-jacob-2025.md
+    line_start: 54
+    line_end: 54
+  controls:
+    level: 2
+    text: Next Step
+    anchor: next-step
+    placement: document_flow
+  lock:
+    text: false
+    level: false
+  notes: []
+- id: paragraph_004
+  type: paragraph
+  role: body_copy
+  source:
+    format: markdown
+    path: content\MDA-050-jacob-2025.md
+    line_start: 56
+    line_end: 56
+  controls:
+    placement: in:next-step
+    emphasis: normal
+  lock:
+    content: false
+  notes: []
