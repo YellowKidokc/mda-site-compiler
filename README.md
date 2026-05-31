@@ -169,6 +169,15 @@ See:
 - `docs/LEGACY_SCRIPT_BRIDGE.md`
 - `config/legacy_script_bridge.yml`
 
+## GUI part system
+
+The planned GUI is organized around twelve page parts plus a QA layer. The GUI should edit the same manifests an AI partner can edit directly.
+
+See:
+
+- `docs/GUI_PART_SYSTEM.md`
+- `config/gui_part_registry.yml`
+
 
 ## GUI mode
 

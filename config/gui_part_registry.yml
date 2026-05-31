@@ -1,0 +1,114 @@
+version: 1
+principle: "AI-first contracts first; GUI panels edit the same manifests later."
+source_flow:
+  - import_markdown
+  - label_structure
+  - edit_page_parts
+  - build_html
+  - validate_output
+  - publish_gate
+parts:
+  identity:
+    label: Page Identity
+    purpose: Title, canonical path, IDs, status, SEO, robots, and production intent.
+    manifest_fields: [id, filename, canonical, public_title, seo_title, meta_description, status, brand, robots]
+    component_types: []
+    legacy_scripts: [mda_audit_repair.py]
+    gui_controls: [text_inputs, status_dropdown, robots_dropdown]
+    applies_to: page
+  topbar:
+    label: Top Bar
+    purpose: Site-level brand ribbon and persistent top navigation.
+    manifest_fields: [topbar]
+    component_types: [html_component]
+    legacy_scripts: [component_swap.py, mda_nav_v2_patch.py]
+    gui_controls: [component_dropdown, link_editor, color_controls]
+    applies_to: template_slot
+  hero:
+    label: Hero
+    purpose: First-viewport visual/title treatment.
+    manifest_fields: [hero, public_title, claim_type, image, image_alt]
+    component_types: [heading, image, html_component]
+    legacy_scripts: [hero_image_audit.py]
+    gui_controls: [component_dropdown, title_editor, image_picker, alignment_controls]
+    applies_to: template_slot
+  navigation:
+    label: Navigation
+    purpose: Series nav, reading order, prev/next, and related pathing.
+    manifest_fields: [nav, reading_order, related_work]
+    component_types: [html_component]
+    legacy_scripts: [wire_mda_navigation.py, mda_nav_v2_patch.py, master_html_modular_runner.py]
+    gui_controls: [component_dropdown, order_editor, related_picker]
+    applies_to: series
+  sidebar:
+    label: Sidebar
+    purpose: TOC, glossary, proof index, or contextual companion panel.
+    manifest_fields: [sidebar]
+    component_types: [heading, html_component]
+    legacy_scripts: [inject-global-sidebar.ps1, inject-proof-arch-sidebar.ps1]
+    gui_controls: [component_dropdown, toc_toggle, glossary_toggle]
+    applies_to: template_slot
+  body:
+    label: Body Content
+    purpose: Markdown article content, sections, paragraphs, and semantic blocks.
+    manifest_fields: [layout]
+    component_types: [heading, paragraph, semantic_block, quote]
+    legacy_scripts: [convert_html_to_clean_markdown.py, html_to_markdown_scrape.py]
+    gui_controls: [markdown_editor, section_tree, block_editor]
+    applies_to: document_flow
+  images:
+    label: Images
+    purpose: Article images, hero images, captions, placement, crop, and responsive behavior.
+    manifest_fields: [image, image_alt]
+    component_types: [image]
+    legacy_scripts: [hero_image_audit.py, image_inventory_scan.ps1, mda_media_manifest.py]
+    gui_controls: [image_picker, align_selector, width_height_inputs, caption_editor, crop_dropdown]
+    applies_to: page_components
+  proof_layer:
+    label: Proof/Audit Layer
+    purpose: Collapsible proof, claim-control, audit, and evidence-status surfaces.
+    manifest_fields: [proof_layer, claim_type, proof_status, claim_tier]
+    component_types: [semantic_block]
+    legacy_scripts: [mda_proof_layer_inject.py, add_rigor_audits.py, add_rigor_audits_to_html.py]
+    gui_controls: [visibility_toggle, claim_tier_dropdown, proof_status_dropdown, block_editor]
+    applies_to: page_components
+  reader_modes:
+    label: Reader Modes
+    purpose: Easy, standard, academic, and proof reading views.
+    manifest_fields: [reader_modes]
+    component_types: [html_component]
+    legacy_scripts: [mda_reader_tabs_v2_patch.py]
+    gui_controls: [mode_checkboxes, default_mode_dropdown]
+    applies_to: page
+  media:
+    label: Audio/Media
+    purpose: Audio player, video, TTS exports, and media asset wiring.
+    manifest_fields: [audio, media]
+    component_types: [html_component]
+    legacy_scripts: [mda_audio_catalog_map.py, mda_media_manifest.py, inject_player.py, wire_unified_media_players.py]
+    gui_controls: [audio_toggle, media_picker, transcript_toggle]
+    applies_to: page
+  related_ring:
+    label: Related Ring
+    purpose: Related work, concept cluster, backlinks, and next-study surfaces.
+    manifest_fields: [related_ring, related_work, concept_cluster]
+    component_types: [html_component]
+    legacy_scripts: [graph_relations.py, enhance_mda_subdomain_links.py]
+    gui_controls: [visibility_toggle, relation_picker, concept_cluster_input]
+    applies_to: series
+  footer:
+    label: Footer
+    purpose: Site footer, status language, policy links, and canonical series return.
+    manifest_fields: [footer]
+    component_types: [html_component]
+    legacy_scripts: [component_swap.py]
+    gui_controls: [component_dropdown, link_editor, status_text]
+    applies_to: template_slot
+qa_layer:
+  label: QA / Publish Gate
+  purpose: Whole-page and whole-series checks that apply across all parts.
+  manifest_fields: [status, validation_policy]
+  component_types: [all]
+  legacy_scripts: [mda_audit_repair.py, find_unicode.py, verify_live.py, master_html_modular_runner.py]
+  gui_controls: [run_validation_button, issue_table, publish_gate_button]
+  applies_to: all_parts
